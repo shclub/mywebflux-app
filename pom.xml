@@ -52,10 +52,24 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<!-- M1 맥북에 추가 -->
 			<groupId>io.netty</groupId>
 			<artifactId>netty-resolver-dns-native-macos</artifactId>
 			<version>4.1.73.Final</version>
 			<classifier>osx-aarch_64</classifier>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-webflux-core -->
+		<dependency>
+			<groupId>org.springdoc
+		    </groupId>
+			<artifactId>springdoc-openapi-webflux-core</artifactId>
+			<version>1.6.15</version>
+	     </dependency>
+		<!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-webflux-ui -->
+		<dependency>
+		    <groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-webflux-ui</artifactId>
+			<version>1.6.15</version>
 		</dependency>
 	</dependencies>
 
