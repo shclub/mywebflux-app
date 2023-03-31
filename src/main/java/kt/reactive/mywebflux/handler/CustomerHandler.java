@@ -1,7 +1,5 @@
 package kt.reactive.mywebflux.handler;
 
-
-
 import kt.reactive.mywebflux.entity.Customer;
 import kt.reactive.mywebflux.exception.CustomAPIException;
 import kt.reactive.mywebflux.repository.R2CustomerRepository;
@@ -69,6 +67,15 @@ public class CustomerHandler {
         return updatedCustomerMono.flatMap(customer -> ServerResponse.accepted()
                 .contentType(MediaType.APPLICATION_JSON)
                 .bodyValue(customer)).switchIfEmpty(getError(id));
+    }
+
+    public Mono<ServerResponse> deleteCustomer(ServerRequest request) {
+        long id = Long.parseLong(request.pathVariable("id")); //ctrl + alt + v 는 리턴값 알려줌.
+        return customerRepository.findById(id)
+                .flatMap(existCustomer ->
+                        ServerResponse.ok()
+                                .build(customerRepository.delete(existCustomer)))
+                .switchIfEmpty(getError(id));
     }
 }
 /* 세번째
